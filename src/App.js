@@ -2,21 +2,22 @@ import { useState } from 'react';
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
 import CartProvider from './store/CartProvider';
+import Cart from './components/Cart/Cart';
 
 function App() {
-  const [showCart,setShowcart] = useState(false);
+  const [showCart, setShowcart] = useState(false);
 
-  function showCartHandler(){
+  function showCartHandler() {
     setShowcart(true);
   }
 
-  function hideCartHandler(){
+  function hideCartHandler() {
     setShowcart(false);
   }
   return (
     <CartProvider>
-      {showCart && <div>Cart...</div>}
-      <Header onShowCart={showCartHandler}/>
+      {showCart && <Cart />}
+      <Header onShowCart={showCartHandler} />
       <main>
         <Meals />
       </main>
